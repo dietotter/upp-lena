@@ -1,0 +1,10 @@
+# IntelliJ stuff
+VasylenkoIndividual.iml
+.idea/
+
+# Build
+out/
+
+# Mac OS stuff
+.DS_Store
+src/.DS_Store
