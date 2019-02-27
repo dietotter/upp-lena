@@ -31,7 +31,7 @@ public class PatientsForm implements View {
         });
 
         addButton.addActionListener((ActionEvent e) -> {
-            new AddPatientDialog().setVisible(true);
+            new AddPatientDialog(mainFrame, this).setVisible(true);
         });
 
         deleteButton.addActionListener((ActionEvent e) -> {

@@ -1,5 +1,8 @@
 package gui;
 
+import com.company.DemoLogic;
+import model.Patient;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -12,7 +15,7 @@ public class AddPatientDialog extends JDialog {
     private JTextField passportField;
     private JTextField birthdayField;
 
-    public AddPatientDialog() {
+    public AddPatientDialog(MainFrame mainFrame, View currentView) {
         setTitle("Додати пацієнта");
         setContentPane(contentPane);
         setModal(true);
@@ -22,7 +25,7 @@ public class AddPatientDialog extends JDialog {
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                onOK(mainFrame, currentView);
             }
         });
 
@@ -50,8 +53,13 @@ public class AddPatientDialog extends JDialog {
         pack();
     }
 
-    private void onOK() {
+    private void onOK(MainFrame mainFrame, View currentView) {
         // add your code here
+        Patient patient = new Patient(passportField.getText(), nameField.getText(), birthdayField.getText());
+
+        mainFrame.getDemoLogic().addPatient(patient);
+        mainFrame.changeView(currentView, new PatientsForm(mainFrame));
+
         dispose();
     }
 

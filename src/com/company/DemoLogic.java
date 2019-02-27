@@ -2,7 +2,11 @@ package com.company;
 
 import model.*;
 
+import java.util.Arrays;
+
 public class DemoLogic {
+
+    public static int purchaseId = 3;
 
     // ALL DRUGSTORES
     private Drugstore[] drugstoresArr = {
@@ -102,6 +106,17 @@ public class DemoLogic {
         // DefaultListModel<>
     }
 
+    public void addPatient(Patient patient) {
+        patientsArr = Arrays.copyOf(patientsArr, patientsArr.length + 1);
+        patientsArr[patientsArr.length - 1] = patient;
+    }
+
+    public void addPurchase(Purchase purchase) {
+        purchasesArr = Arrays.copyOf(purchasesArr, purchasesArr.length + 1);
+        purchasesArr[purchasesArr.length - 1] = purchase;
+        purchaseId++;
+    }
+
     // ALL PATIENTS
     public void preparePatients() {
 
@@ -133,5 +148,29 @@ public class DemoLogic {
 
     public Purchase[] getPurchasesArr() {
         return purchasesArr;
+    }
+
+    public void setDrugstoresArr(Drugstore[] drugstoresArr) {
+        this.drugstoresArr = drugstoresArr;
+    }
+
+    public void setDrugsArr(Drug[] drugsArr) {
+        this.drugsArr = drugsArr;
+    }
+
+    public void setRecipesArr(Recipe[] recipesArr) {
+        this.recipesArr = recipesArr;
+    }
+
+    public void setDoctorsArr(Doctor[] doctorsArr) {
+        this.doctorsArr = doctorsArr;
+    }
+
+    public void setPatientsArr(Patient[] patientsArr) {
+        this.patientsArr = patientsArr;
+    }
+
+    public void setPurchasesArr(Purchase[] purchasesArr) {
+        this.purchasesArr = purchasesArr;
     }
 }
